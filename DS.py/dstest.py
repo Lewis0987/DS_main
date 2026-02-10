@@ -407,6 +407,13 @@ try:
         print(f"\033[32m🎉 所有 Banner 都已觸發完成！總數 {total}\033[0m")
         time.sleep(1)
 
+    sleep(1)
+    # B.2-1 首頁【Banner】廣告模塊 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+
+
 #<<<<<<<<<<<<<<<<<<<<<背景偵測popup，結束>>>>>>>>>>>>>>>>>>>>>>
 except TimeoutException:
     pass
@@ -415,6 +422,13 @@ finally:
     exit_event.set()
     popup_thread.join()
 #<<<<<<<<<<<<<<<<<<<<<背景偵測popup，結束>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+
+
+
+
 
 input('Press Enter to exit...')
 
