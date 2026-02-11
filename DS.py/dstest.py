@@ -38,8 +38,8 @@ config = configparser.ConfigParser()
 config.read(config_keyfile, encoding='utf-8')
 
 ################確認遊戲模板(請輸入 'U1、U2.../V1、V2...')###########################
-version = ['IN']
-ui_numbers = ['INPV6']
+version = 'IN'
+ui_numbers = ['INV6']
 ################確認帳號#######################################
 phone='8888888888' #for 登入
 # 初始化Chrome浏览器
@@ -302,24 +302,25 @@ try:
     print("\033[44m\033[32m" + "B.2-1 首頁【Banner】廣告模塊" + "\033[0m")
     sleep(0.5)
     #尋找首頁Banner參數【'0_ENTER_GAME', '1_TEAM_CLUB', '2_FIRST_CHARGE', '3_CHARGE_WHEEL', '4_INVITE_WHEEL','5_RANKINGS', '6_GIFT_CODE', '7_VIP', '8_PIGGY_BANK', '9_Daily Mission'】
-    banner_alts = ['0_ENTER_GAME', '1_TEAM_CLUB', '2_FIRST_CHARGE', '3_CHARGE_WHEEL', '4_INVITE_WHEEL','5_RANKINGS', '6_GIFT_CODE', '7_VIP', '8_PIGGY_BANK', '9_Daily Mission']
+    banner_alts = ['0_DYNAMIC_ACTIVITY', '1_ENTER_GAME', '2_TEAM_CLUB', '3_FIRST_CHARGE', '4_CHARGE_WHEEL','5_RANKINGS', '6_RANKINGS', '7_GIFT_CODE', '8_VIP', '9_PIGGY_BANK']
     clicked_banners = set()  # 記錄哪些 banner 成功點擊過
     clicked_banners.clear()  # 僅針對已存在的集合清空
 
     # 決定要用哪一組名稱對照表 ，如果沒有參數 => 未定義
     if ui_numbers == ['INV6']:
-        banner_alts = ['0_ENTER_GAME', '1_TEAM_CLUB', '2_FIRST_CHARGE', '3_CHARGE_WHEEL', '4_INVITE_WHEEL','5_RANKINGS', '6_GIFT_CODE', '7_VIP', '8_PIGGY_BANK', '9_Daily Mission']
+        banner_alts = ['0_DYNAMIC_ACTIVITY', '1_ENTER_GAME', '2_TEAM_CLUB', '3_FIRST_CHARGE', '4_CHARGE_WHEEL','5_RANKINGS', '6_RANKINGS', '7_GIFT_CODE', '8_VIP', '9_PIGGY_BANK']
         alt_names = { 
-        '0_ENTER_GAME': '✈️ 飛機遊戲',
-        '1_TEAM_CLUB': '👥 團隊俱樂部',
-        '2_FIRST_CHARGE': '💎 首儲活動',
-        '3_CHARGE_WHEEL': '🎡 充值轉盤',
-        '4_INVITE_WHEEL': '🎯 邀請轉盤',
+        '0_DYNAMIC_ACTIVITY': '🚗動態活動', #INPV6 = 0_NEW_PAYMENT_GUIDE
+        '1_ENTER_GAME': '✈️ 飛機遊戲',
+        '2_TEAM_CLUB': '👥 團隊俱樂部',
+        '3_FIRST_CHARGE': '💎 首儲活動',
+        '4_CHARGE_WHEEL': '🎡 充值轉盤',
+        '_INVITE_WHEEL': '🎯 邀請轉盤',
         '5_RANKINGS': '🏆 排行榜',
-        '6_GIFT_CODE': '🎁 禮包碼',
-        '7_VIP': '👑 VIP專區',
-        '8_PIGGY_BANK': '🐷 虧損反水', 
-        '00_Daily Mission': '📋 任務中心'   
+        '7_GIFT_CODE': '🎁 禮包碼',
+        '8_VIP': '👑 VIP專區',
+        '9_PIGGY_BANK': '🐷 虧損反水', 
+        '00_Daily Mission': '📋 任務中心' 
     } 
     else:
         banner_alts = ['0_FIRST_CHARGE', '1_PIGGY_BANK', '2_ENTER_GAME', '3_TEAM_CLUB', '4_CHARGE_WHEEL','5_INVITE_WHEEL', '6_GIFT_CODE', '7_VIP', '8_PIGGY_BANK']
@@ -359,6 +360,7 @@ try:
                             EC.presence_of_element_located((By.XPATH, '//div[contains(text(), "This game has been taken down")]'))
                         )
                         print(f"\033[31m⚠️【{alt_text}】遊戲異常略過返回首頁。\033[0m")
+                        time.sleep(1)
                         clicked_banners.add(alt_text)
                         continue
                     except TimeoutException:
@@ -380,7 +382,7 @@ try:
 
                     driver.back()  # 回首頁
                     print("離開返回首頁 \033[32mOK\033[0m")
-                    time.sleep(1)
+                    time.sleep(1,5)
                     clicked_banners.add(alt_text) #繼續點擊 banner
             except NoSuchElementException:
                 pass
