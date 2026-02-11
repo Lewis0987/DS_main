@@ -38,7 +38,7 @@ config = configparser.ConfigParser()
 config.read(config_keyfile, encoding='utf-8')
 
 ################確認遊戲模板(請輸入 'U1、U2.../V1、V2...')###########################
-version = 'IN'
+version = ['IN']
 ui_numbers = ['INPV6']
 ################確認帳號#######################################
 phone='8888888888' #for 登入
