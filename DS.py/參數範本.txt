@@ -7,3 +7,4 @@
 #driver.refresh()
 #driver.back()
 #pip install pyperclip
+#執行不關視窗或暫停 input('Press Enter to exit...') 

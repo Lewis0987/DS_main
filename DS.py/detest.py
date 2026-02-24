@@ -55,25 +55,71 @@ for product in ui_numbers:
 #-------------------------1.A.首頁模塊 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 # A.首頁
 print('\033[33mAP平台 \033[0m')
-print("\033[44m\033[32m" + "首頁" + "\033[0m")
+print("\033[44m\033[32m" + "A.首頁" + "\033[0m")
 
 try:
     # 慢慢往下滑動（模擬人）
     for i in range(3):  # 滑 3 次
         driver.execute_script("window.scrollBy(0, 200);")
         time.sleep(0.5)
+    print('往下滑動 \033[32mOK\033[0m')
     Contact = WebDriverWait(driver, 5).until(
         EC.element_to_be_clickable((By.XPATH, "//div[contains(@class, 'bannerBtn aos-init aos-animate')]"))
     ).click()
     print('A-1.點擊contact btn \033[32mOK\033[0m')
 except TimeoutException: 
-    print("\033[94m未偵測活動元素，繼續流程...\033[0m")
+    print("\033[94mA-1.未偵測活動元素，繼續流程...\033[0m")
 try:
     Contact = WebDriverWait(driver, 5).until(
         EC.element_to_be_clickable((By.XPATH, "//div[contains(text(), 'Happy to see you here')]"))
     ).click()
     print('A-2.Contact頁 \033[32mOK\033[0m')
 except TimeoutException: 
-    print("\033[94m未偵測活動元素，繼續流程...\033[0m")
+    print("\033[94mA-2.未偵測活動元素，繼續流程...\033[0m")
+driver.back()
+print("回首頁 \033[32mOK\033[0m")
+driver.refresh
+print("重整頁面 \033[32mOK\033[0m")
+'''
+try:
+    Contact = WebDriverWait(driver, 5).until(
+        EC.element_to_be_clickable((By.XPATH, "//*[contains(@class,'slideLogo')]"))
+    ).click()
+    print('首頁logo重整 \033[32mOK\033[0m')
+except TimeoutException: 
+    print("\033[94m.未偵測元素...\033[0m")
+
+
+## 慢慢往下滑動（模擬人）
+for i in range(3):  # 滑 3 次
+        driver.execute_script("window.scrollBy(0, -200);")
+        time.sleep(0.5)
+print('往上滑動 \033[32mOK\033[0m')
+'''
+
+try:
+    navSlide = WebDriverWait(driver, 5).until(
+        EC.element_to_be_clickable((By.XPATH, "(//div[contains(@class,'navSlide')]//a)[2]" #頭部導航條抓元素左到右 
+        ))
+    ).click()
+    print('首頁_點擊頭部頁籤 products \033[32mOK\033[0m')
+
+    try:
+        navSlide = WebDriverWait(driver, 5).until(
+        EC.element_to_be_clickable((By.XPATH, "(//div[contains(@class,'navSlide')]//a)[2]" #頭部導航條抓元素左到右 
+        ))
+    ).click()
+        print('首頁_ product頁面 \033[32mOK\033[0m')        
+    except TimeoutException:
+        print("\033[94m.錯誤或其他問題...\033[0m")
+
+except TimeoutException: 
+    print("\033[94m.未偵測元素...\033[0m")
+
+input('Press Enter to exit...')
+
+
+
+
 
 input('Press Enter to exit...') #執行不關視窗
