@@ -22,7 +22,7 @@ import re
 # 設定 ChromeOptions 
 config = configparser.ConfigParser()
 # ====== 設定下載路徑 ====== 
-download_path =r"C:\Users\User\Downloads"  #另種寫法 "C:\\Users\howar\Downloads" 
+download_path =r"C:\Users\lewis.chiu\Downloads"  #另種寫法 "C:\\Users\howar\Downloads" 或 【自用 r"C:\Users\User\Downloads"】
 #r"D:\下載"	✅ 推薦	不用擔心 \ 變跳脫符號
 #"D:\\下載"	✅ 推薦	手動雙斜線跳脫更安全
 #"D:\下載"	❌ 不推薦	萬一剛好有 \t、\n、\r 很容易踩坑
@@ -37,7 +37,7 @@ config_keyfile = os.path.join(current_dir, 'IND.ini')
 config.read(config_keyfile, encoding='utf-8')
 ################確認遊戲模板(請輸入 'U1、U2.../V1、V2...')###########################
 ui_version = 'IN'
-product_numbers = ['INV6']
+product_numbers = ['INPV6']
 ################確認帳號#######################################
 phone='8888888888' #for 登入
 # 初始化Chrome浏览器
@@ -520,19 +520,20 @@ try:
         '0_DYNAMIC_ACTIVITY': '支付教程 動態活動'  
     } 
     else:
-        banner_alts = ['0_FIRST_CHARGE', '1_PIGGY_BANK', '2_ENTER_GAME', '3_TEAM_CLUB', '4_CHARGE_WHEEL','5_INVITE_WHEEL', '6_GIFT_CODE', '7_VIP', '8_PIGGY_BANK']
+        banner_alts = ['1_FIRST_CHARGE', '2_PIGGY_BANK', '3_ENTER_GAME', '4_TEAM_CLUB', '5_CHARGE_WHEEL','6_INVITE_WHEEL', '7_GIFT_CODE', '8_VIP', '9_PIGGY_BANK']
         alt_names = { 
-        '0_FIRST_CHARGE': '💎 首儲活動',
-        '1_PIGGY_BANK': '🐷 虧損反水',
-        '2_ENTER_GAME': '✈️ 飛機遊戲',
-        '3_TEAM_CLUB': '👥 團隊俱樂部',
-        '4_CHARGE_WHEEL': '🎡 充值轉盤',
-        '5_INVITE_WHEEL': '🎯 邀請轉盤',
-        '6_GIFT_CODE': '🎁 禮包碼',
-        '7_VIP': '👑 VIP專區',
-        '8_PIGGY_BANK': '🐷 虧損反水'
+        '0_NEW_PAYMENT_GUIDE': '💰 新支付指南',
+        '1_FIRST_CHARGE': '💎 首儲活動',
+        '2_PIGGY_BANK': '🐷 虧損反水',
+        '3_ENTER_GAME': '✈️ 飛機遊戲',
+        '4_TEAM_CLUB': '👥 團隊俱樂部',
+        '5_CHARGE_WHEEL': '🎡 充值轉盤',
+        '6_INVITE_WHEEL': '🎯 邀請轉盤',
+        '7_GIFT_CODE': '🎁 禮包碼',
+        '8_VIP': '👑 VIP專區',
+        '9_PIGGY_BANK': '🐷 虧損反水'
     }
-    
+    #  0_NEW_PAYMENT_GUIDE
     running = True  # 控制 while 是否繼續
     error_reported = False   # ⬅️ 新增旗標，避免重複印
     while running: 
