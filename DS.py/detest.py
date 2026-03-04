@@ -97,26 +97,33 @@ for i in range(3):  # 滑 3 次
 print('往上滑動 \033[32mOK\033[0m')
 '''
 
+
+#A.3首頁導航條tab bar 頭部導航條抓元素左至右 [1,2,3,4,5] 
+print('\033[33m首頁[A.3 tab bar] 訂閱 \033[0m')
+print("\033[44m\033[32m" + "A.3 tab bar" + "\033[0m")
 try:
-    navSlide = WebDriverWait(driver, 5).until(
-        EC.element_to_be_clickable((By.XPATH, "(//div[contains(@class,'navSlide')]//a)[2]" #頭部導航條抓元素左到右 
+    tabbar = WebDriverWait(driver, 5).until(
+        EC.element_to_be_clickable((By.XPATH, "(//div[contains(@class,'navSlide')]//a)[2]" #頭部導航條抓元素左到右
         ))
     ).click()
-    print('首頁_點擊頭部頁籤 products \033[32mOK\033[0m')
+    print('A-3.首頁_點擊tab【products】 \033[32mOK\033[0m')
 
     try:
-        navSlide = WebDriverWait(driver, 5).until(
-        EC.element_to_be_clickable((By.XPATH, "(//div[contains(@class,'navSlide')]//a)[2]" #頭部導航條抓元素左到右 
+        Prouducts = WebDriverWait(driver, 5).until(
+        EC.element_to_be_clickable((By.XPATH, "//*[contains(text(),'Game Support Language')]" #Prouducts頁面
         ))
     ).click()
-        print('首頁_ product頁面 \033[32mOK\033[0m')        
+        print('A-3-1.導向product頁面 \033[32mOK\033[0m')        
     except TimeoutException:
         print("\033[94m.錯誤或其他問題...\033[0m")
-
 except TimeoutException: 
     print("\033[94m.未偵測元素...\033[0m")
 
-input('Press Enter to exit...')
+
+
+
+
+
 
 
 
