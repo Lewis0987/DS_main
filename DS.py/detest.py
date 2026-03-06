@@ -62,7 +62,8 @@ try:
     for i in range(3):  # 滑 3 次
         driver.execute_script("window.scrollBy(0, 200);")
         time.sleep(0.5)
-    print('往下滑動 \033[32mOK\033[0m')
+    print('往下滑動尋找navSlide \033[32mOK\033[0m')
+    
     Contact = WebDriverWait(driver, 5).until(
         EC.element_to_be_clickable((By.XPATH, "//div[contains(@class, 'bannerBtn aos-init aos-animate')]"))
     ).click()
@@ -81,6 +82,7 @@ print("回首頁 \033[32mOK\033[0m")
 driver.refresh
 print("重整頁面 \033[32mOK\033[0m")
 '''
+#執行上下滑動
 try:
     Contact = WebDriverWait(driver, 5).until(
         EC.element_to_be_clickable((By.XPATH, "//*[contains(@class,'slideLogo')]"))
@@ -88,8 +90,6 @@ try:
     print('首頁logo重整 \033[32mOK\033[0m')
 except TimeoutException: 
     print("\033[94m.未偵測元素...\033[0m")
-
-
 ## 慢慢往下滑動（模擬人）
 for i in range(3):  # 滑 3 次
         driver.execute_script("window.scrollBy(0, -200);")
@@ -99,15 +99,17 @@ print('往上滑動 \033[32mOK\033[0m')
 
 
 #A.3首頁導航條tab bar 頭部導航條抓元素左至右 [1,2,3,4,5] 
-print('\033[33m首頁[A.3 tab bar] 訂閱 \033[0m')
+print('\033[33m首頁[A.3 tab bar] \033[0m')
 print("\033[44m\033[32m" + "A.3 tab bar" + "\033[0m")
+
+#導航條tab【PRODUCTS】
+print('\033[33m首頁[A.3-1.tab【products】] \033[0m')
 try:
     tabbar = WebDriverWait(driver, 5).until(
-        EC.element_to_be_clickable((By.XPATH, "(//div[contains(@class,'navSlide')]//a)[2]" #頭部導航條抓元素左到右
+        EC.element_to_be_clickable((By.XPATH, "(//div[contains(@class,'navSlide')]//a)[2]" #導航條[2]
         ))
     ).click()
-    print('A-3.首頁_點擊tab【products】 \033[32mOK\033[0m')
-
+    print('A-3-1.首頁_點擊tab【products】 \033[32mOK\033[0m')
     try:
         Prouducts = WebDriverWait(driver, 5).until(
         EC.element_to_be_clickable((By.XPATH, "//*[contains(text(),'Game Support Language')]" #Prouducts頁面
@@ -118,8 +120,32 @@ try:
         print("\033[94m.錯誤或其他問題...\033[0m")
 except TimeoutException: 
     print("\033[94m.未偵測元素...\033[0m")
+sleep(0.5)
 
+# 慢慢往下滑動（模擬人）
+for i in range(3):  # 滑 3 次
+        driver.execute_script("window.scrollBy(0, 200);")
+        time.sleep(0.5)
+print('往下滑動尋找navSlide \033[32mOK\033[0m')
 
+#導航條tab【ABOUT】
+print('\033[33m首頁[A.3-2.tab【ABOUT】] \033[0m')
+try:
+    tabbar = WebDriverWait(driver, 5).until(
+        EC.element_to_be_clickable((By.XPATH, "(//div[contains(@class,'navSlide')]//a)[3]" #導航條[3]
+        ))
+    ).click()
+    print('A-3-2.首頁_點擊tab【ABOUT】 \033[32mOK\033[0m')
+    try:
+        Prouducts = WebDriverWait(driver, 5).until(
+        EC.element_to_be_clickable((By.XPATH, "//*[contains(text(),'ABOUT')]" #ABOUT頁面
+        ))
+    ).click()
+        print('A-3-2.導向ABOUT頁面 \033[32mOK\033[0m')        
+    except TimeoutException:
+        print("\033[91m.未偵測元素或其他問題...\033[0m")
+except TimeoutException: 
+    print("\033[95m.未偵測元素...\033[0m")
 
 
 
