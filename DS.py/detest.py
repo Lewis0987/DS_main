@@ -33,7 +33,7 @@ chrome_options.add_argument("--log-level=3")  # 只顯示 fatal 錯誤
 chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])  # 關閉 GCM 日誌
 # 获取当前文件所在目录的绝对路径
 current_dir = os.path.dirname(os.path.abspath(__file__))
-config_keyfile = os.path.join(current_dir, 'IND.ini')
+config_keyfile = os.path.join(current_dir, 'URL.ini')
 # 讀取配置文件
 config = configparser.ConfigParser()
 config.read(config_keyfile, encoding='utf-8')
