@@ -63,7 +63,7 @@ try:
         driver.execute_script("window.scrollBy(0, 200);")
         time.sleep(0.5)
     print('往下滑動尋找navSlide \033[32mOK\033[0m')
-    
+
     Contact = WebDriverWait(driver, 5).until(
         EC.element_to_be_clickable((By.XPATH, "//div[contains(@class, 'bannerBtn aos-init aos-animate')]"))
     ).click()
@@ -146,7 +146,7 @@ try:
         print("\033[91m.未偵測元素或其他問題...\033[0m")
 except TimeoutException: 
     print("\033[95m.未偵測元素...\033[0m")
-
+111
 
 
 
