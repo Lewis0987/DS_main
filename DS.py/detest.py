@@ -53,9 +53,9 @@ for product in ui_numbers:
     driver.maximize_window() #網頁整頁
 
 #-------------------------1.A.首頁模塊 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# A.首頁
-print('\033[33mAP平台 \033[0m')
-print("\033[44m\033[32m" + "A.首頁" + "\033[0m")
+# A.首頁【導航條】
+print('\033[33mAP首頁【導航條】 \033[0m')
+print("\033[44m\033[32m" + "首頁【導航條】" + "\033[0m")
 
 try:
     # 慢慢往下滑動（模擬人）
@@ -202,7 +202,7 @@ sleep(0.5)
 # 【CONTACT】內頁點擊Home=============================
 try:
     Homes = driver.find_elements(By.XPATH,"//*[contains(text(),'HOME')]")
-    print((len(Homes))) #印頁面【home】數量
+    print((len(Homes))) #印頁面【home】元素數量
     print(f"\033[33m首頁[A.3-4.tab【CONTACT】] 數量: {len(Homes)}\033[0m") #數量加上字色
 
     Home = WebDriverWait(driver,10).until(
@@ -211,9 +211,9 @@ try:
     Home.click()
     '''By.XPATH, "//section[@class='breadCrumbsZone']//a[text()='HOME']"'''
     print('A-3-4.CONTACT頁面點擊【點Home】 \033[32mOK\033[0m')
-    try: # Home頁面
+    try: # 首頁頁面
         Home = WebDriverWait(driver, 5).until(
-        EC.element_to_be_clickable((By.XPATH, "//*[contains(text(),'play to your')]" #Home頁面
+        EC.element_to_be_clickable((By.XPATH, "//*[contains(text(),'play to your')]" # Home首頁
         ))
     ).click()
         print('A-3-4.Home頁面 \033[32mOK\033[0m')        
@@ -222,14 +222,13 @@ try:
 except TimeoutException:
     print("\033[91m.未偵測元素或其他問題...\033[0m")
 
+# A.首頁【語系選單】
+print('\033[33mAP平台 \033[0m')
+print("\033[44m\033[32m" + "A.首頁" + "\033[0m")
 
 
 
 
-
-except TimeoutException: 
-    print("\033[95m.未偵測元素...\033[0m")
-sleep(0.5)
 
 
 

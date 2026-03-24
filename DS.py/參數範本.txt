@@ -1,10 +1,13 @@
 [;] => 可當註解
-#@@元素@@
-#[#]=>尋找ID   
-#[.]=>className
-#By.XPATH, "//*[contains(@xx, 'xx')
-#暫停操作 input('Press Enter to exit...') 
-#driver.refresh()
-#driver.back()
-#pip install pyperclip
-#執行不關視窗或暫停 input('Press Enter to exit...') 
+# @@元素@@
+# [#]=>尋找ID   
+# [.]=>className
+# By.XPATH, "//*[contains(@xx, 'xx')
+# 暫停操作 input('Press Enter to exit...') 
+# driver.refresh()
+# driver.back()
+# pip install pyperclip
+# 執行不關視窗或暫停 input('Press Enter to exit...') 
+# // = 不限層級（從任何位置往下找）,  / = 只找下一層（子節點）
+* ＝ 任意標籤（any element）
+# | = OR 的意思（XPath 語法）
