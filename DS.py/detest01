@@ -80,19 +80,26 @@ except TimeoutException:
 try:
     # 1️⃣ 等待選單出現（假設已經點開了）
     options = WebDriverWait(driver, 5).until(
-        EC.presence_of_all_elements_located(
-            (By.XPATH, "//div[contains(@class,'myOption')]")))
+        EC.presence_of_all_elements_located((By.XPATH, "//div[contains(@class,'myOption')]")))
     print('A-4.開啟選單 \033[32mOK\033[0m')
 
-    # 2️⃣ 印出所有語系
-    for i, opt in enumerate(options):
-        print(f"\033[34m{i}: {opt.text}\033[0m")
 
-    # 3️⃣ 找「日本」並點擊
-    for opt in options:
-        if "日本" in opt.text:
-            opt.click()
-            break
+    # 2️⃣ 印出所有語系 
+    for l, my in enumerate(options):  # [list = 0 為第一個 my = 第一個語系元素]
+        text = my.text.strip()
+        print(f"\033[34m{l}: {my.text}\033[0m")
+
+        
+    # 3️⃣ 找「變數」並點擊
+        if "简体中文" in text:
+            my.click()
+            print(f"A-4-a.選擇國籍語系\033[33m[{l}-{text}]\033[0m \033[32mOK\033[0m")
+            break  # for 停止迴圈迴圈
+    else: print("\033[91mA-4-a.未偵測元素或其他問題...\033[0m")
 except TimeoutException:
-    print("\033[91m.未偵測元素或其他問題...\033[0m")
+    print("\033[91mA-4.未偵測元素或其他問題...\033[0m")
+
+
+
+找不到選單全部語系
 input('Press Enter to exit...') #執行不關視窗
