@@ -202,7 +202,7 @@ sleep(0.5)
 # 【CONTACT】內頁點擊Home=============================
 try:
     Homes = driver.find_elements(By.XPATH,"//*[contains(text(),'HOME')]")
-    print((len(Homes))) #印頁面【home】元素數量
+    print((len(Homes))) #印頁面【home】元素總數量
     print(f"\033[33m首頁[A.3-4.tab【CONTACT】] 數量: {len(Homes)}\033[0m") #數量加上字色
 
     Home = WebDriverWait(driver,10).until(
