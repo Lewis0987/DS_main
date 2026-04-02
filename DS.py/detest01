@@ -97,9 +97,9 @@ try:
 
     # 3️⃣ 再點擊目標語系
     for l, text, my in all_options:
-        if "한국인" in text:
+        if "भारतीय" in text:
             my.click()
-            print(f"A-4-a.選擇國籍語系\033[33m[{l}-{text}]\033[0m \033[32mOK\033[0m")
+            print(f"\033[35mA-4-a.選擇國籍語系\033[0m \033[34m[{l}-{text}]\033[0m \033[32mOK\033[0m")
             break
 except TimeoutException:
     print("\033[91mA-4.未偵測元素或其他問題...\033[0m")
