@@ -19,7 +19,6 @@ import configparser
 import pyperclip
 import re
 
-
 # ====== 設定下載路徑 ====== 
 #download_path =r"C:\Users\User\Downloads"  #另種寫法 "C:\\Users\howar\Downloads" 
 #r"D:\下載"	✅ 推薦	不用擔心 \ 變跳脫符號
@@ -108,3 +107,4 @@ except TimeoutException:
 
 
 input('Press Enter to exit...') #執行不關視窗
+
