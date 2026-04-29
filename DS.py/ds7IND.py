@@ -51,6 +51,17 @@ for product in ui_numbers:
     driver.get(url)
     driver.maximize_window() #網頁整頁
 
+# 先檢查網址是否被擋
+def is_blocked(driver):
+    page = driver.page_source
+    return "Why have I been blocked" in page or "Cloudflare" in page
+def pause_for_manual():
+    input("⛔ 已停止（被擋），處理完後按 Enter 繼續...")
+if is_blocked(driver):
+    print("❌ 網址被擋住或其他問題")
+    pause_for_manual()
+
+
 #<<<<<<<<<<<<<<<<<<<<<背景偵測popup，並關閉>>>>>>>>>>>>>>>>>>>>>>
 exit_event = threading.Event()
 def handle_popups(driver):
